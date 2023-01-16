@@ -1,0 +1,47 @@
+---
+import Container from "@components/Container.astro";
+
+const navLinks = [
+  {
+    text: "sobre mi",
+    href: "",
+  },
+  {
+    text: "proyectos",
+    href: "",
+  },
+];
+---
+
+<header class="fixed w-full border-b border-blue-light">
+  <Container>
+    <nav class="flex items-center justify-between h-28">
+      <a href="/" class="text-2xl font-bold">baezdev</a>
+      <ul class="flex gap-12 text-sm font-bold uppercase text-gray-text">
+        {
+          navLinks.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="tracking-wider px-1 relative hover:text-white after:absolute after:content-[''] after:hover:w-full after:w-0 after:h-[3px] hover:after:bg-white after:-bottom-3 after:left-0 after:transition-all after:duration-300"
+              >
+                {text}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <a
+            href="/"
+            class="px-8 py-[14px] text-white border hover:bg-white hover:text-blue-strong transition-colors duration-300"
+            >contacto</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </Container>
+</header>
+
+<!-- class="tracking-wide px-1 relative hover:text-white after:absolute after:content-[''] after:w-full after:h-[2.5px] hover:after:bg-white after:-bottom-3 after:left-0 transition-all duration-300 after:-translate-x-1/4 after:opacity-0 after:hover:opacity-100 after:hover:translate-x-0 after:hover:duration-300" -->
+
+<!-- class="tracking-wide px-1 relative hover:text-white after:absolute after:content-[''] after:hover:w-full after:w-0 after:h-[2.5px] hover:after:bg-white after:-bottom-3 after:left-0 after:transition-all after:duration-300" -->
