@@ -1,0 +1,26 @@
+<div class="absolute w-full top-0 h-full transition-transform duration-700 -z-10">
+  <span
+    class="absolute 2xl:left-44 left-14 w-16 h-16 bg-white rounded-full top-40 planet bg-gradient-to-tr to-[#1CB5E0] from-[#000851]"
+    data-value="2"></span>
+  <span
+    class="absolute bg-white rounded-full right-32 2xl:right-60 w-11 h-11 top-48 2xl:top-60 planet bg-gradient-to-tr to-[#efd5ff] from-[#515ada]"
+    data-value="3"></span>
+  <span
+    class="absolute w-5 h-5 bg-white rounded-full bottom-14 right-56 2xl:right-96 planet bg-gradient-to-tr to-[#d53369] from-[#daae51]"
+    data-value="-4"></span>
+</div>
+<script>
+  const $ = (selector: string) => document.querySelectorAll(selector);
+
+  document.addEventListener("mousemove", (event) => {
+    const planets = $(".planet");
+    planets.forEach((planet) => {
+      const moving_value: any = planet.getAttribute("data-value");
+      const x = (event.clientX * moving_value) / 250;
+      const y = (event.clientY * moving_value) / 250;
+
+      planet.style.transform =
+        "translateX(" + x + "px) translateY(" + y + "px)";
+    });
+  });
+</script>
